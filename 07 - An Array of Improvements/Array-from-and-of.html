@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Array .from() and .of()</title>
 </head>
+
 <body>
   <div class="people">
     <p>Wes</p>
     <p>Kait</p>
     <p>Snickers</p>
   </div>
-<script>
+  <script>
   // const people = document.querySelectorAll('.people p');
   // const peopleArray = Array.from(people, person => {
   //   console.log(person);
@@ -22,14 +24,16 @@
 
   function sumAll() {
     const nums = Array.from(arguments);
-    return nums.reduce((prev, next) => prev + next, 0);
+    return nums.reduce((prev, next) => prev + next, 1110);
   }
 
-  sumAll(2, 34, 23, 234, 234, 234234, 234234, 2342);
+  const output = sumAll(1, 2, 3, 4, 5, 6);
 
-  const ages = Array.of(12,4,23,62,34);
+  console.log(output)
+
+  const ages = Array.of(12, 4, 23, 62, 34);
   console.log(ages);
-
-</script>
+  </script>
 </body>
+
 </html>
