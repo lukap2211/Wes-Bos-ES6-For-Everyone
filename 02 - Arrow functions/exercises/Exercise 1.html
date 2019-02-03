@@ -1,48 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Arrow Functions</title>
 </head>
+
 <body>
-
-<ul>
-  <li data-time="5:17">Flexbox Video</li>
-  <li data-time="8:22">Flexbox Video</li>
-  <li data-time="3:34">Redux Video</li>
-  <li data-time="5:23">Flexbox Video</li>
-  <li data-time="7:12">Flexbox Video</li>
-  <li data-time="7:24">Redux Video</li>
-  <li data-time="6:46">Flexbox Video</li>
-  <li data-time="4:45">Flexbox Video</li>
-  <li data-time="4:40">Flexbox Video</li>
-  <li data-time="7:58">Redux Video</li>
-  <li data-time="11:51">Flexbox Video</li>
-  <li data-time="9:13">Flexbox Video</li>
-  <li data-time="5:50">Flexbox Video</li>
-  <li data-time="5:52">Redux Video</li>
-  <li data-time="5:49">Flexbox Video</li>
-  <li data-time="8:57">Flexbox Video</li>
-  <li data-time="11:29">Flexbox Video</li>
-  <li data-time="3:07">Flexbox Video</li>
-  <li data-time="5:59">Redux Video</li>
-  <li data-time="3:31">Flexbox Video</li>
-</ul>
-
-<script>
-
+  <ul>
+    <li data-time="5:17">Flexbox Video</li>
+    <li data-time="8:22">Flexbox Video</li>
+    <li data-time="3:34">Redux Video</li>
+    <li data-time="5:23">Flexbox Video</li>
+    <li data-time="7:12">Flexbox Video</li>
+    <li data-time="7:24">Redux Video</li>
+    <li data-time="6:46">Flexbox Video</li>
+    <li data-time="4:45">Flexbox Video</li>
+    <li data-time="4:40">Flexbox Video</li>
+    <li data-time="7:58">Redux Video</li>
+    <li data-time="11:51">Flexbox Video</li>
+    <li data-time="9:13">Flexbox Video</li>
+    <li data-time="5:50">Flexbox Video</li>
+    <li data-time="5:52">Redux Video</li>
+    <li data-time="5:49">Flexbox Video</li>
+    <li data-time="8:57">Flexbox Video</li>
+    <li data-time="11:29">Flexbox Video</li>
+    <li data-time="3:07">Flexbox Video <span>test 1</span></li>
+    <li data-time="3:17">Flexbox Video <span>test 2</span></li>
+    <li data-time="3:57">Flexbox Video <span>test 3</span></li>
+    <li data-time="5:59">Redux Video</li>
+    <li data-time="3:31">Flexbox Video</li>
+  </ul>
+  <div class="person"></div>
+  <div class="person"></div>
+  <div id="dogsList"></div>
+  <div class="dogsList"></div>
+  <script>
   // Select all the list items on the page and convert to array
 
-  // Filter for only the elements that contain the word 'Flexbox'
+  const allItems = Array.from(document.querySelectorAll("[data-time]"))
 
-  // map down to a list of time strings
-
-  // map to an array of seconds
+  // // Filter for only the elements that contain the word 'Flexbox'
+  const filtered = allItems
+    .filter(item => item.textContent.includes('Redux'))
+  // // // map down to a list of time strings
+  // .map(item => item.dataset.time)
+  // // // map to an array of seconds
+  // .map(timecode => {
+  //   const parts = timecode.split(':').map(part => parseFloat(part))
+  //   return parts[0] * 60 + parts[1]
+  // })
+  // .reduce((runningTotal, seconds) => runningTotal + seconds)
 
   // reduce to get total
 
   // 🔥 This can also be done in a single .reduce(), but we're practicing arrow functions here, so chain them!
 
-</script>
+  console.log(filtered)
+
+  const person = {
+    name: "Luka",
+    job: "unemploeyed",
+    hobby: "watch NBA"
+  }
+
+
+  // console.log("Object.values(person)")
+  // console.log(Object.values(person))
+
+  const snippet = (id) => `
+    <div data-id = "${id}"">
+      Hi ${person.name}, you are ${person.job}, and you like ${person.hobby}, id: ${id}
+    </div>
+  `
+
+  const divs = document.getElementsByClassName("person");
+  console.log(divs)
+  for (const id of Object.keys(divs)) {
+    divs[id].innerHTML = snippet(parseFloat(id) + 1)
+  }
+
+  const snippet2 = (time) => `
+    Hi ${person.name}, you wanna ${person.hobby}, lets say ${time}?
+  `
+  console.log(snippet2('tonight'))
+
+  const Dogs = [
+    { name: 'Cookie', age: 9 },
+    { name: 'Bob', age: 2 },
+    { name: 'Bill', age: 5 },
+  ]
+
+  // Map returns array, so we need to join at the end with ""
+  const DogsAge = `
+    <ul class="dogs">
+    ${Dogs.map(dog => `<li class="dog">${dog.name} is ${dog.age * 7} years old.</li>`).join('')}
+    </ul>
+  `
+  console.log(DogsAge)
+  document.getElementById("dogsList").innerHTML = DogsAge
+  document.getElementsByClassName("dogsList")[0].innerHTML = DogsAge
+  </script>
 </body>
+
 </html>
