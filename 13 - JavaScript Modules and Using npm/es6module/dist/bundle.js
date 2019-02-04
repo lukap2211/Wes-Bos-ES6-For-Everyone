@@ -106,6 +106,7 @@ const ages = [12, 1, 1, 3, 3, 9, 9, 66, 12]
 
 document.body.innerHTML = Object(_src_user__WEBPACK_IMPORTED_MODULE_0__["default"])('lukap2211@gmail.com')
 
+
 /***/ }),
 
 /***/ "./node_modules/charenc/charenc.js":
@@ -476,12 +477,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var md5__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(md5__WEBPACK_IMPORTED_MODULE_0__);
 
 
-function gravatar (email){
-	const hash = md5__WEBPACK_IMPORTED_MODULE_0___default()(email.toLowerCase())
-	const gravatarPhoto = `https://www.gravatar.com/avatar/${hash}`
-	console.log(`My Gravatar URL https://www.gravatar.com/avatar/${hash}`)
-	return gravatarPhoto
+function gravatar(email) {
+  const hash = md5__WEBPACK_IMPORTED_MODULE_0___default()(email.toLowerCase());
+  const gravatarPhoto = `https://www.gravatar.com/avatar/${hash}`;
+  console.log(`My Gravatar URL https://www.gravatar.com/avatar/${hash}`);
+  return gravatarPhoto;
 }
+
 
 /***/ })
 
